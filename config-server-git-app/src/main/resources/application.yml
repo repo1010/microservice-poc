@@ -13,7 +13,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/repo1010/springcloud-cofigserver-test
+          uri: https://github.com/repo1010/springcloud-cofigserver-test #(User need to clone content of repository to his
+          # own repository and replace uri with his own repository uri
+          # also need to provide username and password for his github below)
           # D://workspace/spring/resource/springcloud-cofigserver-test
           #https://github.com/repo1010/springcloud-cofigserver-test
           username: git username
@@ -25,6 +27,9 @@ spring:
               pattern:
                 - '*/perf/*'
               uri: https://github.com/repo1010/springcloud-configserver-perf-test
+              #(User need to clone content of repository to his
+               # own repository and replace uri with his own repository uri
+               # also need to provide username and password for his github below)
               username: git username
               password: git password
               search-paths:

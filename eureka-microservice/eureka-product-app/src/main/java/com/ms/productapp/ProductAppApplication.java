@@ -3,7 +3,9 @@ package com.ms.productapp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,9 +24,10 @@ public class ProductAppApplication {
 		SpringApplication.run(ProductAppApplication.class, args);
 	}
 
+	@LoadBalanced
 	@Bean
-	 RestTemplate restTemplate() {
-		return new RestTemplate();
+	 RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
 	}
 	
 	@Autowired
@@ -33,8 +36,9 @@ public class ProductAppApplication {
 	@RequestMapping(value="/{prodid}", method= RequestMethod.GET)
 	public String getProdInfo(@PathVariable Integer prodid) {
 		
-		ResponseEntity<String> nameresponse = restTemplate.getForEntity("http://localhost:8091/prodname/"+prodid, String.class);
-		ResponseEntity<Double> costresponse = restTemplate.getForEntity("http://localhost:8092/prodcost/"+prodid, Double.class);
+		System.out.println("getProdInfo");
+		ResponseEntity<String> nameresponse = restTemplate.getForEntity("http://product-name-provider/prodname/"+prodid, String.class);
+		ResponseEntity<Double> costresponse = restTemplate.getForEntity("http://product-cost-provider/prodcost/"+prodid, Double.class);
 		
 		return nameresponse.getBody() + "    "+costresponse.getBody();
 		
