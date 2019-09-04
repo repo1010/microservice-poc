@@ -9,10 +9,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ms.productapp</groupId>
-	<artifactId>eureka-product-app</artifactId>
+	<artifactId>ribbon-product-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eureka-product-app</name>
-	<description>Demo project for product-app</description>
+	<name>ribbon-product-app</name>
+	<description>Demo project for ribbon-product-app</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
