@@ -40,10 +40,10 @@ public class ProductAppApplication {
 	public String getProdInfo(@PathVariable Integer prodid) {
 		
 		System.out.println("getProdInfo");
-		//ResponseEntity<String> nameresponse = restTemplate.getForEntity("http://product-name-provider/prodname/"+prodid, String.class);
+		ResponseEntity<String> nameresponse = restTemplate.getForEntity("http://product-name-provider/prodname/"+prodid, String.class);
 		ResponseEntity<Double> costresponse = restTemplate.getForEntity("http://product-cost-provider/prodcost/"+prodid, Double.class);
 		
-		return /* nameresponse.getBody() + "    "+ */costresponse.getBody().toString();
+		return  nameresponse.getBody() + "    "+ costresponse.getBody().toString();
 		
 	}
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RefreshScope
 @Controller
-//@ConfigurationProperties("prod")
 public class ProductController {
 
 	@Value("${prod.name}")

@@ -1,0 +1,21 @@
+server:
+  port: 8800
+  
+security:
+  oauth2:
+    client:
+      client-id: 2f626397c4d39b974a78
+      client-secret: 210a31f0085e0f934b96624ce9ffd7cd16177530
+      access-token-uri: https://github.com/login/oauth/access_token
+      user-authorization-uri: https://github.com/login/oauth/authorize
+      client-authentication-scheme: form
+    resource:
+      user-info-uri: https://api.github.com/user
+      prefer-token-info: false  
+       
+      
+      
+  #user:
+   # name: guest
+   # password: guest
+   
